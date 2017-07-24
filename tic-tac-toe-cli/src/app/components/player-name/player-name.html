@@ -1,0 +1,33 @@
+<div *ngIf="player1 && enterNames">
+    <table>
+        <tr>
+            <td>№ game</td>
+            <td [class.winner]="isWinnerX"><div>{{player1}} <span class="marker"> X </span></div></td>
+            <td [class.winner]="isWinner0"><div>{{player2}} <span class="marker"> O </span></div></td>
+        </tr>
+        <tr>
+            <td>{{ numberGame }}</td>
+            <td [class.winner]="isWinnerX"><div>{{winner_x}}</div></td>
+            <td [class.winner]="isWinner0"><div>{{winner_0}}</div></td>
+        </tr>
+    </table>
+</div>
+<!--<div class="gameResults" *ngIf="winner===0">Winner: First Player</div>
+<div class="gameResults" *ngIf="winner===1">Winner: Second Player</div>-->
+<div *ngIf="enterNames">
+<div class="enter-names" title="Enter your names" *ngIf="!start">
+    <div>
+        <label for="player1">Player 1</label>
+        <input class="enter-names__input" id="player1" type="text"
+               placeholder="Player 1" maxlength="14" name="player1Enter" [(ngModel)]="player1Enter"><br>
+        <label for="player2">Player 2</label>
+        <input class="enter-names__input" id="player2" type="text"
+               placeholder="Player 2" maxlength="14" name="player2Enter" [(ngModel)]="player2Enter">
+    </div>
+    <div class="button">
+        <button id="button" (click)="onKeyAll(player1Enter, player2Enter)"> Save </button>
+    </div>
+</div>
+</div>
+
+

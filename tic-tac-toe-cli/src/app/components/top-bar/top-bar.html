@@ -1,0 +1,19 @@
+ <div class="top-bar">
+
+    <button (click)="enterName()" >Two players</button>
+
+
+    <button [disabled]="isSizeField" [mdMenuTriggerFor]="menu">Size field
+        <!--<i class="material-icons" style="margin: 0px; padding: 0px">arrow_drop_down</i> <img src="./ic_arrow_drop_down_black_18px.svg" alt="menu">-->
+    </button>
+
+    <md-menu #menu="mdMenu">
+        <button md-menu-item (click)="setSizeField(3)"> 3 x 3 </button>
+        <button md-menu-item (click)="setSizeField(4)"> 4 x 4 </button>
+        <button md-menu-item (click)="setSizeField(5)"> 5 x 5 </button>
+    </md-menu>
+
+    <!-- <button disabled>Registration</button>-->
+    <button (click)="showHistory()">History</button>
+</div>
+

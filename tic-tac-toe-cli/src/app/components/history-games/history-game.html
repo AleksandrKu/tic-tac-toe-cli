@@ -1,0 +1,18 @@
+<table *ngIf="showHistory">
+    <tr>
+        <td>Date</td>
+        <td>Games</td>
+        <td>Player 1</td>
+        <td>Player 2</td>
+        <td>Score</td>
+    </tr>
+    <tr  *ngFor="let item of items | async">
+        <td>{{ item.date }} </td>
+        <td>{{ item.numberGames }}</td>
+        <td>{{ item.player1  }}</td>
+        <td>{{ item.player2  }}</td>
+        <td>{{ item.player1Points }} - {{item.player2Points }}</td>
+    </tr>
+</table>
+
+

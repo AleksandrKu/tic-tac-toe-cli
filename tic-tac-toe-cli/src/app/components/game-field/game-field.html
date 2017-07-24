@@ -1,0 +1,17 @@
+
+<div *ngIf="!showHistory">
+<div id="board">
+    <div *ngFor="let row of board; let rowNo=index" [ngClass]="rowClassBoard">
+        <div *ngFor="let cell of row; let colNo=index" class="cell" [ngClass]="cellClassBoard" (click)="cellClicked(rowNo, colNo)">
+
+           <!-- <span>{{rowNo}} {{colNo}}</span>-->
+            <span [ngClass]="marker" *ngIf="cell===0">X</span>
+            <span [ngClass]="marker"  *ngIf="cell===1">O</span>
+        </div>
+    </div>
+</div>
+
+<button class="restart" (click)="restartGame()">New Set</button>
+<button class="restart" (click)="newGame()">New Game</button>
+</div>
+

@@ -1,0 +1,42 @@
+.enter-names__input {
+    margin: 2px;
+}
+/*#button {
+    margin: 5px;
+    padding: 2px;
+    margin-left: 25%;
+    font-size: 20px;
+}*/
+.enter-names {
+    display: flex;
+}
+#button {
+    margin: 5px;
+    padding: 10px;
+    background: gainsboro;
+    font-size: 20px;
+}
+#button:hover {
+    color: white;
+    background: gray;
+}
+.marker {
+    /* position: absolute;
+      top: 50%;
+     transform: translate(-50%, -50%);*/
+    font-size: 12pt;
+    font-weight: 900;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 2px solid darkgray;
+    padding: 5px;
+    text-align: center;
+
+}
+.winner {
+    background-color: pink;
+}
