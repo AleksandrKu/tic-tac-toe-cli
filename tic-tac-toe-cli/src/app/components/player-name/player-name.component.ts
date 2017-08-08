@@ -12,8 +12,8 @@ export class PlayerName implements DoCheck {
     };
     public enterNames: any = false;
     public start: boolean = false;
-    private player1: string;
-    private player2: string;
+    public player1: string;
+    public  player2: string;
     public winner: number;
     private winner_x: number = 0;
     private winner_0: number = 0;
@@ -30,7 +30,7 @@ export class PlayerName implements DoCheck {
 
     ngDoCheck() {
         this.enterNames = this.appService.getPlayers();
-        console.log(" player name " + this.enterNames);
+        /*console.log(" player name " + this.enterNames);*/
         this.winner = this.appService.getWinner();
         if (this.winner === 0) {
             this.isWinnerX = true;
@@ -43,7 +43,7 @@ export class PlayerName implements DoCheck {
             this.isWinnerX = false;
             this.isWinner0 = false;
         }
-        console.log(" this.winner " + this.winner);
+       /* console.log(" this.winner " + this.winner);*/
         this.winner_x = this.appService.getWinnerX();
         this.winner_0 = this.appService.getWinner0();
 

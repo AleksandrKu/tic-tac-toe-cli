@@ -2,8 +2,8 @@ import {Component, DoCheck} from '@angular/core';
 import {GameFieldService} from './game-field.service';
 import {AppService} from '../../app.service';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {Observable} from 'rxjs/Observable';
-import {DatePipe} from '@angular/common';
+/*import {Observable} from 'rxjs/Observable';
+import {DatePipe} from '@angular/common';*/
 
 @Component({
     moduleId: module.id,
@@ -28,16 +28,14 @@ export class GameField implements DoCheck {
     public board = this.gameFieldService.createBoard(this.sizeField); // для поля
 
     private players: string;
-    private showHistory: boolean = false;
+    public showHistory: boolean = false;
     private date: any;
-    /*private items: FirebaseListObservable<any[]>;*/
     constructor(private gameFieldService: GameFieldService,
                 private appService: AppService,
                 private db: AngularFireDatabase) {
         //*******************************************
         this.appService.caseNumber$.subscribe(
             size => {
-                console.log('game field ' + size);
                 this.sizeField = size;
                 /* this.searchCaseNumber = data;*/
                 /*   this.sibling2Form.patchValue({
@@ -61,7 +59,6 @@ export class GameField implements DoCheck {
     newGame() {
         this.player1 = this.appService.getPlayersName()[0];
         this.player2 = this.appService.getPlayersName()[1];
-
         //запись в firebase
         /*const itemObservable = this.db.object('/game'); // имя документа
          itemObservable.update({
@@ -89,11 +86,12 @@ export class GameField implements DoCheck {
             return;
         this.currentPlayer++;
         this.board[row][col] = this.currentPlayer % 2 ? 0 : 1;
-
         let checkResult = this.gameFieldService.checkBoard(this.board);
+
         if (checkResult) {
             this.winner = checkResult.winner;
             this.appService.setWinner(this.winner);
+
         }
     }
 

@@ -16,15 +16,17 @@ import { AppService } from './app.service';
 
 import { AppComponent } from './app.component';
 
+// AngularFire Imports
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, GameField, PlayerName, ScoreTable, Stopwatch, TopBar, HistoryGames
+    AppComponent, GameField, PlayerName, ScoreTable, Stopwatch, TopBar, HistoryGames, RegistrationComponent
   ],
   imports: [
     BrowserModule,

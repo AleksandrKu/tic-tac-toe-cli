@@ -15,17 +15,14 @@ export class AppService {
 
     private sizeField: number = 3;
 //*****************************************************
-
     // Observable string sources
     private caseNumber = new Subject<number>();
     // Observable string streams
     caseNumber$ = this.caseNumber.asObservable();
-
     // Service message commands
     publishData(size: number) {
         this.caseNumber.next(size);
-     /*   console.log('APP Servis ' + size);*/
-    }
+        }
 //*****************************************************
 
     setPlayersName(player1: string, player2: string) {
@@ -91,11 +88,11 @@ export class AppService {
         return this.showHistory;
     }
 
-    setSizeField(size: number) {
+    /*setSizeField(size: number) {
         this.sizeField = size;
-    }
-    getSizeField() {
+    }*/
+   /* getSizeField() {
         return this.sizeField;
-    }
+    }*/
 
 }

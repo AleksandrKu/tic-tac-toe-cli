@@ -8,7 +8,7 @@ import {AppService} from '../../app.service';
     styleUrls: ['top-bar.css']
 })
 export class TopBar {
-    private isSizeField: boolean = true;
+    public isSizeField: boolean = true;
     constructor(private appService: AppService) { }
 
     setSizeField(size: number) { // размер игрового поля

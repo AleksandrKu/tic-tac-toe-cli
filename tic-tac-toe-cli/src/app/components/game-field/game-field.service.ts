@@ -1,19 +1,20 @@
-import { Injectable, DoCheck, OnInit} from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs/Subject';
+import {Injectable, DoCheck, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 import {AppService} from "../../app.service";
+import {element} from "protractor";
 
 @Injectable()
-export class GameFieldService  {
-    private  DIMENSION : number = 3;
+export class GameFieldService {
+    private DIMENSION: number = 3;
     private counter: number = 0;
 
     constructor(private appService: AppService) {
         this.appService.caseNumber$.subscribe(
             size => {
                 this.DIMENSION = size;
-                console.log('game field Service' + this.DIMENSION);
-              });
+              /*  console.log('game field Service' + this.DIMENSION);*/
+            });
     }
 
     createBoard(sizeField): any {
@@ -28,12 +29,12 @@ export class GameFieldService  {
     };
 
     checkBoard(board: any) {
+       /* console.log(board);*/
         let winner;
         // Check rows Если в строке выигрышная комбинация, то winner присваивается 1 или 0 в зависимости , кто выиграл
-        /*winner = board.reduce((hasWon, row) => hasWon || this.check(row), false);*/
-        winner = board.reduce((hasWon: any, row: any) =>
-        {
-          return  hasWon || this.check(row);
+        winner = board.reduce((hasWon: any, row: any) => {
+           /* console.log(board);*/
+            return hasWon || this.check(row);
         }, false); //  в качестве первого аргумента при первом вызове функции
 
         // Check cols
@@ -45,35 +46,82 @@ export class GameFieldService  {
 
         // Check diagonals
         let diagonals = [
-            board.map((row: any, i: number) => row[i]),
-            board.map((row: any, i:number) => row[this.DIMENSION-1-i])
+            board.map((row: any, i: number) => row[i]), //средняя диагональ слева-сверху вниз
+            board.map((row: any, i: number) => row[this.DIMENSION - 1 - i]),  // справа сверху вниз
+
+            board.map((row: any, i: number) => row[i+1]),
+            board.map((row: any, i: number) => row[i-1]),
+
+            board.map((row: any, i: number) => row[i+2]),
+            board.map((row: any, i: number) => row[i-2]),
+
+            board.map((row: any, i: number) => row[this.DIMENSION - 2 - i]),
+            board.map((row: any, i: number) => row[this.DIMENSION  - i]),
+
+            board.map((row: any, i: number) => row[this.DIMENSION - 3 - i]),
+            board.map((row: any, i: number) => row[this.DIMENSION  + 1 - i]),
+
         ];
         winner = winner || diagonals.reduce((hasWon, diagonal) => hasWon || this.check(diagonal), false);
-
         return winner;
+
+
+
     }
+
     check(array: any) {
-        /*console.log(arr);*/
+        let sizeField: number = this.DIMENSION;
         let clone = array.slice(0);
-        let sum = 0;
-        while(clone.length) {
-            let val = clone.pop();
-            if (val == null) {
+        let sum: number = 0;
+        let valBefore: number;
+        if (sizeField <= 5) {
+            while (clone.length) {
+                let val = clone.pop();
+                if (val == null) {
+                    return;
+                }
+                sum += val;
+               /* console.log(sum);*/
+            }
+            if (sum === 0 || (sum === sizeField)) {
+                return {winner: sum / sizeField};
+            }
+            return;
+        } else if (sizeField > 5) {
+            let winArray: any = [];
+
+            for (let i = 1; i <= sizeField; i++) {
+                console.log(clone);
+                let val = clone.pop();
+
+                if (val == null) {
+                    valBefore = val;
+                    winArray = [];
+                    continue;
+                } else {
+                    winArray.push(val);
+                    if(winArray.length >= 5) break;
+                   /* console.log(winArray);
+                    console.log(" We have  ");*/
+                }
+            }
+            if (winArray.length == 5) {
+               /* console.log(" We have winner!" + winArray);*/
+                sum = winArray.reduce(function (result, current) {
+                    return result + current;
+                }, 0);
+                if (sum === 0 || sum === 5) return {winner: sum / 5};
+            } else {
                 return;
             }
-            sum += val;
         }
-        if (sum === 0 || sum === this.DIMENSION) {
-            return {
-                winner: sum / this.DIMENSION || 0
-            };
-        }
-        return;
+
+
     }
 
 
     increment() {
-        this.counter ++;
+        this.counter++;
     };
 
     getValue() {
@@ -82,6 +130,12 @@ export class GameFieldService  {
 
     getRealTime() {
         let date = new Date();
-        return date.getDate() + "." + date.getMonth() + "." + date.getFullYear() + " (" + date.getHours() + ":" + date.getMinutes()+")";
+        let month = (date.getMonth()>=9) ? (+date.getMonth())+1 : '0'+(+date.getMonth()+1);
+        let day = (date.getDate()<10) ? '0' + date.getDate() : date.getDate();
+        let hour = (date.getHours()<10) ? '0' + date.getHours() : date.getHours();
+        let minute = (date.getMinutes()<10) ? '0' + date.getMinutes() : date.getMinutes();
+
+
+        return  " (" + hour + ":" + minute + " ) " + day + "." + month+"." + date.getFullYear();
     }
 }

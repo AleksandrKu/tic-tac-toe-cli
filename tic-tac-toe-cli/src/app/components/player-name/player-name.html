@@ -20,6 +20,10 @@
         <label for="player1">Player 1</label>
         <input class="enter-names__input" id="player1" type="text"
                placeholder="Player 1" maxlength="14" name="player1Enter" [(ngModel)]="player1Enter"><br>
+
+        <!--//валидация??
+        <div [hidden] = "name.valid" || "name.pristine"> </div>
+        -->
         <label for="player2">Player 2</label>
         <input class="enter-names__input" id="player2" type="text"
                placeholder="Player 2" maxlength="14" name="player2Enter" [(ngModel)]="player2Enter">

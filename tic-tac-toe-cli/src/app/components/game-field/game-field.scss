@@ -27,6 +27,20 @@
 .cell-5 {
     width: 20%;
 }
+.row-6 {
+    width: 100%;
+    height: 16.6%;
+}
+.cell-6 {
+    width: 16.6%;
+}
+.row-7 {
+    width: 100%;
+    height: 14.2%;
+}
+.cell-7 {
+    width: 14.2%;
+}
 
 
 
@@ -69,6 +83,19 @@
     transform: translate(-50%, -50%);
     font-size: 50pt;
 }
+.marker-6{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40pt;
+}
+.marker-7{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30pt;
+}
+
 
 .cell:hover {
     background: #f9f9f9;
