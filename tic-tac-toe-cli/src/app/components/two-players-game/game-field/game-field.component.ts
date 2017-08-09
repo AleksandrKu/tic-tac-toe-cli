@@ -1,6 +1,6 @@
 import {Component, DoCheck} from '@angular/core';
 import {GameFieldService} from './game-field.service';
-import {AppService} from '../../app.service';
+import {AppService} from '../../../app.service';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 /*import {Observable} from 'rxjs/Observable';
 import {DatePipe} from '@angular/common';*/
@@ -8,11 +8,11 @@ import {DatePipe} from '@angular/common';*/
 @Component({
     moduleId: module.id,
     selector: 'game-field',
-    templateUrl: 'game-field.html',
+    templateUrl: './game-field.html',
     styleUrls: ['./game-field.scss'],
     providers: [GameFieldService]
 })
-export class GameField implements DoCheck {
+export class GameFieldComponent implements DoCheck {
     private sizeField: number = 3;
     private rowClassBoard: String = "row-3";
     private cellClassBoard: String = "cell-3";

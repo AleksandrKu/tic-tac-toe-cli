@@ -1,13 +1,13 @@
 import {Component, DoCheck} from '@angular/core';
-import {AppService} from '../../app.service';
+import {AppService} from '../../../app.service';
 
 @Component({
     moduleId: module.id,
     selector: 'player-name',
-    templateUrl: 'player-name.html',
-    styleUrls: ['player-name.css']
+    templateUrl: './player-name.html',
+    styleUrls: ['./player-name.css']
 })
-export class PlayerName implements DoCheck {
+export class PlayerNameComponent implements DoCheck {
     constructor(private appService: AppService) {
     };
     public enterNames: any = false;

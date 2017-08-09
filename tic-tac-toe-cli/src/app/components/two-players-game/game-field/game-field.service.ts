@@ -1,7 +1,7 @@
 import {Injectable, DoCheck, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Subject} from 'rxjs/Subject';
-import {AppService} from "../../app.service";
+import {AppService} from "../../../app.service";
 import {element} from "protractor";
 
 @Injectable()

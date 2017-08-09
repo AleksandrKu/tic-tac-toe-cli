@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var app_service_1 = require("../../app.service");
+var app_service_1 = require("../../../app.service");
 var TopBar = (function () {
     function TopBar(appService) {
         this.appService = appService;
@@ -26,8 +26,8 @@ TopBar = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'top-bar',
-        templateUrl: 'top-bar.html',
-        styleUrls: ['top-bar.css']
+        templateUrl: 'src/app/components/two-players-game/top-bar/top-bar.html',
+        styleUrls: ['src/app/components/two-players-game/top-bar/top-bar.css']
     }),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], TopBar);

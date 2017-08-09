@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var game_field_service_1 = require("./game-field.service");
-var app_service_1 = require("../../app.service");
+var app_service_1 = require("../../../app.service");
 var GameField = (function () {
     /* items: FirebaseListObservable<any[]>;*/
     function GameField(gameFieldService, appService) {
@@ -60,7 +60,7 @@ GameField = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'game-field',
-        templateUrl: 'game-field.html',
+        templateUrl: 'src/app/components/two-players-game/game-field/game-field.html',
         styleUrls: ['./game-field.scss'],
         providers: [game_field_service_1.GameFieldService]
     }),

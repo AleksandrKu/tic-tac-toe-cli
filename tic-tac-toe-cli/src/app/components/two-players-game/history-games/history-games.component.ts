@@ -1,5 +1,5 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
-import {AppService} from "../../app.service";
+import {AppService} from "../../../app.service";
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 @Component({
     moduleId: module.id,
@@ -7,7 +7,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
     templateUrl: './history-game.html',
     styleUrls: ['./history-game.scss']
 })
-export class HistoryGames implements DoCheck, OnInit {
+export class HistoryGamesComponent implements DoCheck, OnInit {
     public showHistory: boolean = false;
     /*   private date: any;
     private numberGames: number;

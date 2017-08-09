@@ -1,13 +1,13 @@
-import {Component, OnChanges} from '@angular/core';
-import {AppService} from '../../app.service';
+import { Component } from '@angular/core';
+import { AppService } from '../../../app.service';
 
 @Component({
     moduleId: module.id,
     selector: 'top-bar',
-    templateUrl: 'top-bar.html',
-    styleUrls: ['top-bar.css']
+    templateUrl: './top-bar.html',
+    styleUrls: ['./top-bar.css']
 })
-export class TopBar {
+export class TopBarComponent {
     public isSizeField: boolean = true;
     constructor(private appService: AppService) { }
 

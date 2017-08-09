@@ -1,37 +1,22 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-h1 {
-    font-size: 1.2em;
-    color: #999;
-    margin-bottom: 0;
+:host {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-h2 {
-    font-size: 2em;
-    margin-top: 0;
-    padding-top: 0;
+
+h1.lesson-title {
+    padding: 0 0 6px 65px;
+    /*background: url('app/images/angular.png') no-repeat;*/
+}
+nav h4 {
+    margin: 4px 0 10px 0;
 }
 nav a {
-    padding: 5px 10px;
     text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
-}
-nav a:visited, a:link {
-    color: #607D8B;
-}
-nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
+    transition: all 0.5s;
+    color: #E03237;
 }
 nav a.active {
-    color: #039be5;
-}
-.flex-container {
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-}
-.flex-item {
-    margin: 15px;
+    border-radius: 3px;
+    padding: 2px 8px;
+    background-color: #E03237;
+    color:white;
 }

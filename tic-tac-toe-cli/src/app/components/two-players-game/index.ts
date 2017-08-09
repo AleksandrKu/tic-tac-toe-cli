@@ -1,7 +1,6 @@
 export * from './game-field/game-field.component';
 export * from './player-name/player-name.component';
 export * from './top-bar/top-bar.component';
-export * from './score-table/score-table.component';
-export * from './stopwatch/stopwatch.component';
+export { ScoreTableComponent } from './score-table/score-table.component';
 export * from './top-bar/top-bar.component';
-export * from './history-games/history-games.component';
+export { HistoryGamesComponent } from './history-games/history-games.component';

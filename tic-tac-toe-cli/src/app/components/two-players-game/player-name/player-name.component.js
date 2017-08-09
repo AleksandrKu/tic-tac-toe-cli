@@ -53,8 +53,8 @@ PlayerName = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'player-name',
-        templateUrl: 'player-name.html',
-        styleUrls: ['player-name.css']
+        templateUrl: 'src/app/components/two-players-game/player-name/player-name.html',
+        styleUrls: ['src/app/components/two-players-game/player-name/player-name.css']
     }),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], PlayerName);
