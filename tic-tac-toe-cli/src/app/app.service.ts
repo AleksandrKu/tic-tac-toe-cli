@@ -3,6 +3,7 @@ import { Subject }    from 'rxjs/Subject';
 @Injectable()
 export class AppService {
     private nameTrue: boolean;
+    private isOnePlayerName: boolean;
     private winner: number;
     private winner_x: number = 0;
     private winner_0: number = 0;
@@ -10,6 +11,7 @@ export class AppService {
 
     private player1: string;
     private player2: string;
+    private player: string;
     private numberGame: number = 0;
     private showHistory: boolean = false;
 
@@ -42,6 +44,23 @@ export class AppService {
     getPlayers() {
         return this.nameTrue;
     }
+
+    setOnePlayer(is : boolean){
+        this.isOnePlayerName = is;
+    }
+    getOnePlayer() {
+        return this.isOnePlayerName;
+    }
+
+    setOnePlayerName(player: string) {
+        this.player = player;
+    }
+
+    getOnePlayerName() {
+        return this.player ;
+    }
+
+
 
     setWinner(winner: number) {
        /* console.log("winner " + winner);*/

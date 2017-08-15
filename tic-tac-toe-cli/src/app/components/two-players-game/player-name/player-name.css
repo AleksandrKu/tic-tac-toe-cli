@@ -20,6 +20,20 @@
     color: white;
     background: gray;
 }
+#button2 {
+    margin-left: 5px;
+    padding: 6px;
+    background: gainsboro;
+    font-size: 15px;
+}
+#button2:hover {
+    color: white;
+    background: gray;
+}
+
+
+
+
 .marker {
     /* position: absolute;
       top: 50%;

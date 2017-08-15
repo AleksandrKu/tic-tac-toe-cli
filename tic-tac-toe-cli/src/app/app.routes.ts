@@ -1,20 +1,21 @@
 import { Routes } from "@angular/router";
 /*import { RouterModule } from "@angular/router";*/
-import { OnlineGame } from "./components/online-game/online-game.component";
-import { TwoPlayersGame } from "./components/two-players-game/two-players-game.component";
+
+import { OnlineGameComponent } from "./components/online-game/online-game.component";
+import { TwoPlayersGameComponent } from "./components/two-players-game/two-players-game.component";
 
 export const routes: Routes = [
     {
         path: "",
-        redirectTo: "home",
+        redirectTo: "two-players-game",
         pathMatch: "full",
     },
     {
         path: "two-players-game",
-        component: TwoPlayersGame
+        component: TwoPlayersGameComponent
     },
     {
         path: "online-game",
-        component: OnlineGame
+        component: OnlineGameComponent
     }
 ];

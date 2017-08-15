@@ -1,8 +1,7 @@
-import {Injectable, DoCheck, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Subject} from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+
 import {AppService} from "../../../app.service";
-import {element} from "protractor";
+
 
 @Injectable()
 export class GameFieldService {
@@ -13,7 +12,7 @@ export class GameFieldService {
         this.appService.caseNumber$.subscribe(
             size => {
                 this.DIMENSION = size;
-              /*  console.log('game field Service' + this.DIMENSION);*/
+
             });
     }
 
@@ -29,11 +28,11 @@ export class GameFieldService {
     };
 
     checkBoard(board: any) {
-       /* console.log(board);*/
+
         let winner;
         // Check rows Если в строке выигрышная комбинация, то winner присваивается 1 или 0 в зависимости , кто выиграл
         winner = board.reduce((hasWon: any, row: any) => {
-           /* console.log(board);*/
+
             return hasWon || this.check(row);
         }, false); //  в качестве первого аргумента при первом вызове функции
 
@@ -81,7 +80,7 @@ export class GameFieldService {
                     return;
                 }
                 sum += val;
-               /* console.log(sum);*/
+
             }
             if (sum === 0 || (sum === sizeField)) {
                 return {winner: sum / sizeField};
@@ -91,7 +90,7 @@ export class GameFieldService {
             let winArray: any = [];
 
             for (let i = 1; i <= sizeField; i++) {
-                console.log(clone);
+
                 let val = clone.pop();
 
                 if (val == null) {
@@ -101,12 +100,11 @@ export class GameFieldService {
                 } else {
                     winArray.push(val);
                     if(winArray.length >= 5) break;
-                   /* console.log(winArray);
-                    console.log(" We have  ");*/
+
                 }
             }
             if (winArray.length == 5) {
-               /* console.log(" We have winner!" + winArray);*/
+
                 sum = winArray.reduce(function (result, current) {
                     return result + current;
                 }, 0);

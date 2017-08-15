@@ -24,12 +24,14 @@ import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 /*import { Routes } from '@angular/router';*/
 import { routes } from "./app.routes";
-import { OnlineGame } from './components/online-game/online-game.component';
-import { TwoPlayersGame } from './components/two-players-game/two-players-game.component';
+import { OnlineGameComponent } from './components/online-game/online-game.component';
+import { TwoPlayersGameComponent } from './components/two-players-game/two-players-game.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent, GameFieldComponent, PlayerNameComponent, ScoreTableComponent, TopBarComponent, HistoryGamesComponent, OnlineGame, TwoPlayersGame
+    AppComponent, GameFieldComponent, PlayerNameComponent, ScoreTableComponent, TopBarComponent, HistoryGamesComponent,
+    OnlineGameComponent, TwoPlayersGameComponent
   ],
   imports: [
     BrowserModule,

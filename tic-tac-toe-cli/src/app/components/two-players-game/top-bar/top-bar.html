@@ -1,6 +1,7 @@
  <div class="top-bar">
 
-    <button (click)="enterName()" >Two players</button>
+    <button [disabled]="!isOnePlayer" (click)="playWithComputer()" title="Play with computer">With computer</button>
+    <button [disabled]="!isTwoPlayers"  (click)="enterTwoNames()" title="Two players on one computer">Two players</button>
 
 
     <button [disabled]="isSizeField" [mdMenuTriggerFor]="menu">Size field
