@@ -16,8 +16,8 @@ ScoreTable = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'score-table',
-        templateUrl: 'src/app/components/two-players-game/score-table/score-table.html',
-        styleUrls: ['src/app/components/two-players-game/score-table/score-table.css'],
+        templateUrl: 'src/app/components/two-players-game/player-name/score-table/score-table.html',
+        styleUrls: ['src/app/components/two-players-game/player-name/score-table/score-table.css'],
     })
 ], ScoreTable);
 exports.ScoreTable = ScoreTable;

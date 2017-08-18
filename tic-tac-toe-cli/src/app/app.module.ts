@@ -19,11 +19,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
-/*import { RegistrationComponent } from './components/registration/registration.component';*/
 
-import { RouterModule } from '@angular/router';
-/*import { Routes } from '@angular/router';*/
-import { routes } from "./app.routes";
 import { OnlineGameComponent } from './components/online-game/online-game.component';
 import { TwoPlayersGameComponent } from './components/two-players-game/two-players-game.component';
 
@@ -41,8 +37,7 @@ import { TwoPlayersGameComponent } from './components/two-players-game/two-playe
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    MdMenuModule, MdIconModule, MdGridListModule, MdToolbarModule, MdCardModule,
-    RouterModule.forRoot(routes)
+    MdMenuModule, MdIconModule, MdGridListModule, MdToolbarModule, MdCardModule
 
   ],
   exports: [MdButtonModule, MdCheckboxModule],

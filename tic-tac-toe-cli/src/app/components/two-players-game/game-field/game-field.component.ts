@@ -19,19 +19,17 @@ export class GameFieldComponent implements DoCheck {
     private cellClassBoard: String = "cell-3";
     private marker: string = "marker-3";
 
-   /* private counterGames: number = 0; // количество игр
-    private tile: string = "0";*/
     public currentPlayer: number = 0;
     private winner: number;
     private player1: string;
     private player2: string;
     private player: string;
 
-    public board = this.gameFieldService.createBoard(this.sizeField); // для поля
+    public board = this.gameFieldService.createBoard(this.sizeField); // for field
 
-   /* private players: string;*/
+
     public showHistory: boolean = false;
-  /*  private date: any;*/
+
     constructor(private gameFieldService: GameFieldService,
                 private appService: AppService,
                 private db: AngularFireDatabase) {
@@ -39,25 +37,17 @@ export class GameFieldComponent implements DoCheck {
         this.appService.caseNumber$.subscribe(
             size => {
                 this.sizeField = size;
-                /* this.searchCaseNumber = data;*/
-                /*   this.sibling2Form.patchValue({
-                 caseNumber: data
-                 });*/
-
-                // перерисовываем поле с новыми значениями
+                // new field
                 this.board = this.gameFieldService.createBoard(this.sizeField);
                 this.winner = null;
                 this.currentPlayer = 0;
                 this.appService.setRestartGame();
-
                 this.rowClassBoard = "row-" + size;
                 this.cellClassBoard = "cell-" + size;
                 this.marker = "marker-" + size;
 
             });
         //******************************************
-
-
     }
 
     newGame() {
@@ -175,6 +165,24 @@ console.log('while');
                         else if   ((this.board[0][0] == 0) && (this.board[1][0] === 0) && (this.board[2][0] == null)) { this.board[2][0] = 1; }
 
                         else if   ((this.board[0][2] == 0) && (this.board[1][1] === 0) && (this.board[2][0] == null)) { this.board[2][0] = 1; }
+
+                    else if   ((this.board[1][0] === 0) && (this.board[1][2] === 0) && (this.board[1][1] == null)) { this.board[1][1] = 1; }
+                    else if   ((this.board[1][0] === 0) && (this.board[1][2] == null) && (this.board[1][1] == 0)) { this.board[1][2] = 1; }
+                    else if   ((this.board[1][0] == null) && (this.board[1][2] === 0) && (this.board[1][1] == 0)) { this.board[1][0] = 1; }
+
+                    else if   ((this.board[2][0] === 0) && (this.board[2][1] === 0) && (this.board[2][2] == null)) { this.board[2][2] = 1; }
+                    else if   ((this.board[2][0] === null) && (this.board[2][1] == 0) && (this.board[2][2] == 0)) { this.board[2][0] = 1; }
+
+                    else if   ((this.board[0][2] == 0) && (this.board[1][2] === 0) && (this.board[2][2] == null)) { this.board[2][2] = 1; }
+                    else if   ((this.board[0][2] == null) && (this.board[1][2] === 0) && (this.board[2][2] == 0)) { this.board[0][2] = 1; }
+
+                    else if   ((this.board[0][1] == 0) && (this.board[1][1] === 0) && (this.board[2][1] == null)) { this.board[2][1] = 1; }
+
+                    else if   ((this.board[2][0] == 0) && (this.board[1][1] === 0) && (this.board[0][2] == null)) { this.board[0][2] = 1; }
+
+
+
+
                     else  {
                         this.computerGameEmptyFieldClick();
                     }
@@ -224,6 +232,15 @@ console.log('while');
                     else if   ((this.board[1][0] === 0) && (this.board[1][2] === 0) && (this.board[1][1] == null)) { this.board[1][1] = 1; }
                     else if   ((this.board[1][0] === 0) && (this.board[1][2] == null) && (this.board[1][1] == 0)) { this.board[1][2] = 1; }
                     else if   ((this.board[1][0] == null) && (this.board[1][2] === 0) && (this.board[1][1] == 0)) { this.board[1][0] = 1; }
+
+                    else if   ((this.board[2][0] === 0) && (this.board[2][1] === 0) && (this.board[2][2] == null)) { this.board[2][2] = 1; }
+                    else if   ((this.board[2][0] === null) && (this.board[2][1] == 0) && (this.board[2][2] == 0)) { this.board[2][1] = 1; }
+
+                    else if   ((this.board[0][2] == 0) && (this.board[1][2] === 0) && (this.board[2][2] == null)) { this.board[2][2] = 1; }
+                    else if   ((this.board[0][2] == null) && (this.board[1][2] === 0) && (this.board[2][2] == 0)) { this.board[0][2] = 1; }
+
+
+                    else if   ((this.board[2][0] == 0) && (this.board[2][1] === null) && (this.board[2][2] == 0)) { this.board[2][1] = 1; }
 
 
 

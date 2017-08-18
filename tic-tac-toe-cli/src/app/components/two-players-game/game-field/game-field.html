@@ -12,6 +12,7 @@
         </div>
     </div>
 
+
    <div class="board" *ngIf="!player1">
         <div *ngFor="let row of board; let rowNo=index" [ngClass]="rowClassBoard">
             <div *ngFor="let cell of row; let colNo=index" class="cell" [ngClass]="cellClassBoard"
@@ -22,6 +23,7 @@
             </div>
         </div>
     </div>
+
 
     <button class="restart" (click)="restartGame()">New Set</button>
     <button class="restart" (click)="newGame()">New Game</button>
